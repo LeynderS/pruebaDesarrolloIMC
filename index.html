@@ -74,12 +74,19 @@
             const imc = peso / (estatura * estatura);
             const resultado = imc.toFixed(2);
 
+            let categoria = "";
+
+            if (resultado < 18.5) categoria = "Bajo peso";
+            else if (resultado < 25) categoria = "Peso normal";
+            else if (resultado < 30) categoria = "Sobrepeso";
+            else categoria = "Obesidad";
+
             document.getElementById(
               "resultado"
-            ).innerHTML = `Tu IMC es <strong>${resultado}</strong>.`;
+            ).innerHTML = `Tu IMC es <strong>${resultado}</strong>, categoría: <strong>${categoria}</strong>.`;
           } else {
             document.getElementById("resultado").textContent =
-              "Por favor ingresa datos válidos.";
+              "Por favor ingresa valores válidos.";
           }
         });
     </script>
